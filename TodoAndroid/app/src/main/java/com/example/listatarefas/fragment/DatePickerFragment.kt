@@ -1,4 +1,4 @@
-package com.generation.todoandroid.fragment
+package com.example.listatarefas.fragment
 
 import android.app.DatePickerDialog
 import android.app.Dialog
@@ -7,11 +7,9 @@ import android.widget.DatePicker
 import androidx.fragment.app.DialogFragment
 import java.time.LocalDate
 import java.time.ZoneId
-import java.util.Calendar
+import java.util.*
 
-class DatePickerFragment (
-    val timerPickerListener: TimerPickerListener
-        ) : DialogFragment(), DatePickerDialog.OnDateSetListener{
+class DatePickerFragment(val timerPickerListener: TimerPickerListener): DialogFragment(), DatePickerDialog.OnDateSetListener {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val c = Calendar.getInstance()
@@ -23,14 +21,14 @@ class DatePickerFragment (
     }
 
     override fun onDateSet(p0: DatePicker?, p1: Int, p2: Int, p3: Int) {
-        val calendar = Calendar.getInstance()
-        calendar.set(Calendar.YEAR, p1)
-        calendar.set(Calendar.MONTH, p2)
-        calendar.set(Calendar.DAY_OF_MONTH, p3)
+        val c = Calendar.getInstance()
+        c.set(Calendar.YEAR, p1)
+        c.set(Calendar.MONTH, p2)
+        c.set(Calendar.DAY_OF_MONTH, p3)
 
-        timerPickerListener.onDateSelected(calendar.time.toInstant().atZone(
-            ZoneId.systemDefault()).toLocalDate())
+        timerPickerListener.onDateSelected(c.time.toInstant().atZone(ZoneId.systemDefault()).toLocalDate())
     }
+
 
 }
 

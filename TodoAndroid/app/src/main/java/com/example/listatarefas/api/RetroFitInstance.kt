@@ -1,12 +1,12 @@
-package com.generation.todoandroid.api
+package com.example.listatarefas.api
 
-import com.generation.todoandroid.util.Constants
+import com.example.listatarefas.util.Constants
+import com.google.gson.Gson
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 
-object RetrofitInstance {
-
+object RetroFitInstance {
     private val retrofit by lazy {
         Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)

@@ -1,4 +1,4 @@
-package com.generation.todoandroid
+package com.example.listatarefas
 
 import org.junit.Test
 
